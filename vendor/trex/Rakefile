@@ -1,0 +1,24 @@
+require 'rbconfig'
+HOST_OS=Config::CONFIG['host_os']
+
+task :build do
+  if HOST_OS=='mswin32'
+    `cl -c trex.c`
+    `cl -c test.c`
+    `link -OUT:test.exe test.obj trex.obj`
+  else
+    `gcc -c trex.c`
+    `gcc -c test.c`
+    `gcc -o test test.o trex.o`
+  end
+end
+
+task :clean do
+  if HOST_OS=='mswin32'
+    `del *.obj`
+    `del test.exe`
+  else
+    `rm *.o`
+    `rm test`
+  end
+end
