@@ -12,7 +12,7 @@
 # include <stdlib.h>
 //# include <unistd.h>
 # include <string.h>
-//# include <libgen.h>
+# include "libgen.h"
 # include <assert.h>
 
   typedef struct Header Header;
@@ -1012,13 +1012,13 @@ int main(int argc, char **argv)
       switch (c)
 	{
 	case 'V':
-	  //version(basename(argv[0]));
-	version(argv[0]);
+	  version(basename(argv[0]));
+	//version(argv[0]);
 	  exit(0);
 
 	case 'h':
-	  //usage(basename(argv[0]));
-	usage(argv[0]);
+	  usage(basename(argv[0]));
+	//usage(argv[0]);
 	  break;
 
 	case 'o':
