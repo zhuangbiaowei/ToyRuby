@@ -10,7 +10,7 @@ char *basename (char *filename)
     p = (char *) ".";
   else
     {
-      p = strrchr (filename, '/');
+      p = strrchr (filename, '\\');
 
       if (p == NULL)
 	/* There is no slash in the filename.  Return the whole string.  */
@@ -20,7 +20,7 @@ char *basename (char *filename)
 	  if (p[1] == '\0')
 	    {
 	      /* We must remove trailing '/'.  */
-	      while (p > filename && p[-1] == '/')
+	      while (p > filename && p[-1] == '\\')
 		--p;
 
 	      /* Now we can be in two situations:
@@ -31,7 +31,7 @@ char *basename (char *filename)
 	      if (p > filename)
 		{
 		  *p-- = '\0';
-		  while (p > filename && p[-1] != '/')
+		  while (p > filename && p[-1] != '\\')
 		    --p;
 		}
 	      else
@@ -45,6 +45,6 @@ char *basename (char *filename)
 	    ++p;
 	}
     }
-
+  p = strtok (p, ".");
   return p;
 }
