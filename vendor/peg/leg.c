@@ -10,9 +10,15 @@
 
 # include <stdio.h>
 # include <stdlib.h>
-//# include <unistd.h>
+#ifdef WIN32
+#include <io.h>
+#include <process.h>
+#include "libgen.h"
+#else
+#include <unistd.h>
+#include <libgen.h>
+#endif
 # include <string.h>
-# include "libgen.h"
 # include <assert.h>
 
   typedef struct Header Header;
