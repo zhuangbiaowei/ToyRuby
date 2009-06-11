@@ -18,7 +18,6 @@
 
 #include "tree.h"
 #include "version.h"
-#include "getopt.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -26,6 +25,7 @@
 #include <io.h>
 #include <process.h>
 #include "libgen.h"
+#include "getopt.h"
 #else
 #include <unistd.h>
 #include <libgen.h>
