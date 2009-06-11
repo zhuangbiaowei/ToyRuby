@@ -1,1 +1,2 @@
-extern char *basename (char *path);
+extern char *basename (char *filename);
+extern char *dirname (char *filename);
